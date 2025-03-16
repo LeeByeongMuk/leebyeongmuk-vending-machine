@@ -1,6 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "commonjs",
-    "target": "es6"
+    "target": "es6",
+    "paths": {
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
+    }
   }
 }
