@@ -33,6 +33,11 @@ export class CashPaymentService implements IPaymentService {
     if (machine.getCurrentBalance() < drink.price) {
       return "[금액 부족 메시지] 투입 금액이 부족합니다.";
     }
+
+    if (drink.stock === 0) {
+      return `[재고 부족 메시지] ${drink.name}의 재고가 없습니다.`;
+    }
+
     const changeNeeded = this.calculateChange(machine.getCurrentBalance(), drink.price);
 
     if (changeNeeded > 0 && machine.getChangePool() < changeNeeded) {

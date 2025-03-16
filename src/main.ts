@@ -40,12 +40,6 @@ async function main() {
     }
     const selectedDrink = machine.listDrinks()[choice - 1];
 
-    /** 선택한 음료의 재고가 0인 경우 처리 */
-    if (selectedDrink.stock === 0) {
-      console.log(`[재고 부족 메시지] ${selectedDrink.name}의 재고가 없습니다.`);
-      continue;
-    }
-
     /** 결제 처리 및 결과 출력 */
     const result = paymentService.processPayment(selectedDrink, machine);
     console.log(result);

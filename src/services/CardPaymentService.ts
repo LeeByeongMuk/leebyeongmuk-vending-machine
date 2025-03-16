@@ -23,6 +23,11 @@ export class CardPaymentService implements IPaymentService {
       machine.setCardBalance(0);
       return `[카드 잔액 부족 메시지] 카드 잔액 부족! 결제 취소`;
     }
+
+    if (drink.stock === 0) {
+      return `[재고 부족 메시지] ${drink.name}의 재고가 없습니다.`;
+    }
+
     machine.reduceStock(drink.name);
     machine.deductCardBalance(drink.price);
     return `[카드 결제 완료] '${drink.name}' 구매 성공! 남은 카드 잔액: ${machine.getCardBalance()}원`;
