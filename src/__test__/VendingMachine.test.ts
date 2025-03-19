@@ -40,4 +40,11 @@ describe("VendingMachine", () => {
     expect(status).toMatch(/현금 잔액=/);
     expect(status).toMatch(/재고=\[/);
   });
+
+  test("카드 잔액 추가 및 차감", () => {
+    machine.setCardBalance(10000);
+    expect(machine.getCardBalance()).toBe(10000);
+    machine.deductCardBalance(5000);
+    expect(machine.getCardBalance()).toBe(10000 - 5000);
+  })
 });
